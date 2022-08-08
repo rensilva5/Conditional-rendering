@@ -1,10 +1,11 @@
 import React from "react";
 
 function Footer() {
+    return (
     <footer>
-        <p>&copy; 2022 Renzo Silva</p>
+        <p> &copy;2022 Renzo Silva, LLC</p>
     </footer>
+    )
 }
-
 
 export default Footer;
