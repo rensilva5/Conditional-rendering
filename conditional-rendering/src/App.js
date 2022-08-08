@@ -12,18 +12,24 @@ function App() {
   const [username, setUsername] = useState('')
   
   // const ternary = isLoaded ? 'yes 😃' : 'no 😢'
+  const numbers = [1,2,3,4,5,6,7,8,9,0]
   
   return (
     <div className="App">
       <h1>Usernane is: {username !== ''? username : 'Guest'}</h1>
       <h1>Usernane is: {username || 'Guest'}</h1>
       <h1>{
-        isLoaded &&
+        number.length >0 &&
         <>
-        this is really loaded
+        {numbers.map((num)=> {
+          return num + '&'
+        })}
         <Loaded/>
+        <h2>I have {numbers.length} numbers</h2>
         </>
       }</h1>
+
+      
       <button onClick={()=> {
         console.log('button clicked')
         setIsLoaded(!isLoaded)
