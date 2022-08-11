@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+
 import Form from "../components/Form"
 
 const Contact = () => {

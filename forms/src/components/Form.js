@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Form( {ronsProps, aliciaProps, handleClose, setStateFromClild}){
+export default function Form({ronsProps, aliciaProps, handleClose, setStateFromChild}){
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [validForm, setValidForm] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -37,6 +37,9 @@ export default function Form( {ronsProps, aliciaProps, handleClose, setStateFrom
         setFormSubmitted(true);
         setErrorMessage("");
         setValidForm(true);
+
+        handleClose()
+        setStateFromChild(form)
       } catch (error) {
         console.error(error);
         setErrorMessage("there was an error submitted your comment " + error.toString());
@@ -85,7 +88,7 @@ export default function Form( {ronsProps, aliciaProps, handleClose, setStateFrom
             <option value="other">Other</option>
           </select>
           <h3>{form.author}</h3>
-          <button onClick={() => setStateFromClild('hello Father')}>
+          <button onClick={() => setStateFromChild('hello Father')}>
             Send stuff back to parent</button>
         {!formSubmitted && <button>Submit form</button>}
           {errorMessage && (
