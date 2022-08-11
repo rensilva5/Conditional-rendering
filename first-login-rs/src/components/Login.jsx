@@ -1,6 +1,8 @@
 import { useState } from "react"
 import {initializeApp} from "firebase/app"
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup,
+        
+        } from 'firebase/auth'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCIBgIPMzAKyScaugFieAzKP5w7WN7SfrQ",
@@ -14,12 +16,36 @@ const firebaseConfig = {
 function Login ({setIsLoggedIn}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const handleSignUp = async () => {
+    const connectAuth = async () => {
         //connect to firebase project
         const app = initializeApp(firebaseConfig)
         // also connet to Auth
-        const auth = getAuth(app);
-        //sebd email and pasword to firebas eAuth
+        return getAuth(app)
+    }
+    const handleLogin = async () => {
+        const auth = await connectAuth()
+        const user = await signInWithEmailAndPassword(auth, email, password)
+            .catch(err => alert(err.message))
+        if (user) {
+            console.log(user.user)
+            setIsLoggedIn(true)
+        }
+    }
+
+    const handleGoogleLogin = async () => {
+        const auth = await connectAuth()
+        const provider = new GoogleAuthProvider()
+        const user = await signInWithPopup(auth, provider)
+            .catch (err => alert(err.message))
+            if (user) {
+                console.log(user.user)
+                setIsLoggedIn(true)
+            }
+    }
+
+    const handleSignUp = async () => {
+        const auth = await connectAuth()
+        //send email and password to firebase Auth
         const user = await createUserWithEmailAndPassword(auth, email, password)
             .catch(err => alert (err.message))
         //if all ok
@@ -44,7 +70,11 @@ function Login ({setIsLoggedIn}) {
                 value={password} onChange={e => setPassword(e.target.value)}
                 name="password" type="password"/>
             </label> <br/>
+            
+            <button onClick={handleLogin}>Login</button>&nbsp;
             <button onClick={handleSignUp}>Sign Up</button>
+            <br/>
+            <button onClick={handleGoogleLogin}>Login w/ google</button>
         </form>
     )
 }
