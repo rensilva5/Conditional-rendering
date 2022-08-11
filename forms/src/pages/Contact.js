@@ -1,19 +1,18 @@
-import Form from "../components/Form"
-//import Form from "../components/Form"
-import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import Form from "../components/Form"
 
 const Contact = () => {
     const [show, setShow] = useState(false);
-
+    const [stateFromChild, setStateFromChild] = useState('')
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    console.log('stateFromChild =>', stateFromChild)
   
     return (
         <>
-        <h3>
-            this is Contact
-        </h3>
+        <h3>this is Contact --> hi {stateFromChild.title} </h3>
         <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
@@ -22,17 +21,15 @@ const Contact = () => {
         <Modal.Header closeButton>
           <Modal.Title>Contact Form</Modal.Title>
         </Modal.Header>
-        <Modal.Body></Modal.Body>
-        <Modal.Footer>
-            
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal.Body>
+            <form
+            handleClose={handleClose}
+            ronsProps='Call it My form'
+            aliciasProps={['music', 'food']}
+            setStateFromChild={setStateFromChild}
+            />
+            </Modal.Body>
+        </Modal>
         </>
     )
 }
