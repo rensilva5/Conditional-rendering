@@ -1,5 +1,3 @@
-//import Footer from "../components/Footer"
-
 export const Home = () => {
     return (
         <>
@@ -8,11 +6,11 @@ export const Home = () => {
     )
 }
 
-// import const HomeAlone = () => {
-//     return (
-//         <>
-//         <h3>no place like 127.0.0.1</h3>
-//         </>
-//     )
-// }
-// export default HomeAlone;
+export const HomeAlone = () => {
+    return (
+        <>
+        <h3>no place like 127.0.0.1</h3>
+        </>
+    )
+}
+// export default Home
