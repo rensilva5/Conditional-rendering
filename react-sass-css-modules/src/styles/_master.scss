@@ -1,0 +1,33 @@
+@import './variables';
+//normalized css
+// *:,
+// *::before,
+// *::After {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: inherit;
+// }
+
+// .App {
+//     //background-color: $myColor;
+// }
+// body {
+//   font-family: $myFont;
+//   font-size: $myFontSize;
+//   color: $myColor;
+// }
+// .navigation {
+//   width: $myWidth;
+//   background-color: $bkColor;
+//   &__li > a {
+//     text-decoration: none;
+//   }
+// }
+// .menu {
+//     @include mateosBorder(blue, 1px);
+//   background-color: $bkColorSecondary;
+//   &__link {
+//     background-color: white;
+//     border: solid red;
+//   }
+//}
