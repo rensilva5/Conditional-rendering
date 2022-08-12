@@ -4,12 +4,16 @@ import Beercard from "../BeerCard";
 function Beers() {
   const [beerList, setBeerList] = useState(); //big array
   const [beerType, setBeerType] = useState('ale');
+
+
   useEffect(() => {
     fetch(`https://api.sampleapis.com/beers/${beerType}`) // alle , stouts
       .then((response) => response.json())
       .then((beers) => setBeerList(beers))
       .catch(alert);
   }, [beerType]);
+
+
   if (!beerList) {
     return <h2>Loading...</h2>;
   }

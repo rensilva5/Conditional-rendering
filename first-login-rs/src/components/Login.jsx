@@ -1,8 +1,8 @@
 import { useState } from "react"
 import {initializeApp} from "firebase/app"
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup,
-        
-        } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth,
+        GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup,
+       } from 'firebase/auth'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCIBgIPMzAKyScaugFieAzKP5w7WN7SfrQ",
