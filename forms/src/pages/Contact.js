@@ -13,7 +13,7 @@ const Contact = () => {
   
     return (
         <>
-        <h3>this is Contact --> hi {stateFromChild.title} </h3>
+        <h3>this is Contact hi {stateFromChild.title} </h3>
         <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
