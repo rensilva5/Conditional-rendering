@@ -3,7 +3,7 @@
 const Navbar = () => {
     return (
         <nav className='navbar'>
-            <h1>My Ninja Blog</h1>
+            <h1>My Own Blog</h1>
             <div className="Links">
                 <a href="/">Home</a>
                 {/* <br/> */}
